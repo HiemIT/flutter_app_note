@@ -33,6 +33,12 @@ class _HomeAppState extends State<HomeApp> {
   final Random random = Random();
 
   @override
+  void initState() {
+    super.initState();
+    _noteList = [];
+  }
+
+  @override
   void dispose() {
     closeDB();
     super.dispose();
@@ -42,7 +48,7 @@ class _HomeAppState extends State<HomeApp> {
   Widget build(BuildContext context) {
     _size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: buildAppBar(context),
+      appBar: buildAppBar(context, _noteList),
       body: _buildBody(),
       floatingActionButton: _buildAddNoteFAB(),
     );
