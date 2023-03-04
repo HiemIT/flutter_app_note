@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">1061360896733-mpop3i8cofoui5blrhn6c4g30al0k4pj.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">1061360896733</string>
+    <string name="google_api_key" translatable="false">AIzaSyB7C8yVXY9gdT7dJFy9BnE1dvy2eKoKjCY</string>
+    <string name="google_app_id" translatable="false">1:1061360896733:android:92d83136dc55ef6f34a934</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyB7C8yVXY9gdT7dJFy9BnE1dvy2eKoKjCY</string>
+    <string name="google_storage_bucket" translatable="false">note-app-1926c.appspot.com</string>
+    <string name="project_id" translatable="false">note-app-1926c</string>
+</resources>
