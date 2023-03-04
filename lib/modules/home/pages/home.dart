@@ -168,7 +168,7 @@ class _HomeAppState extends State<HomeApp> {
                   _noteList = state.notes;
                   return _buildListOrEmpty();
                 } else if (state is NotesErrorState) {
-                  return Center(
+                  return Center(          
                     child: Text(state.message),
                   );
                 } else {
