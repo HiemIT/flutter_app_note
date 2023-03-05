@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:flutter/services.dart';
 import 'package:flutter_app_note/db/note_table.dart';
 import 'package:flutter_app_note/modules/home/models/note.dart';
 
@@ -10,7 +13,28 @@ class NoteRepository {
   // Vì vậy để tránh việc tạo nhiều instance thì ta sẽ tạo 1 instance duy nhất và dùng chung cho tất cả các nơi cần dùng.
   final NoteTable _noteTable = NoteTable();
 
-  Future<List<Note>> getAllNotes() async => await _noteTable.readAllNotes();
+  Future<List<Note>> getAllNotes() async {
+    final List<Note> notes = await _noteTable.readAllNotes();
+
+    try {
+      // call data from notes.json
+
+      final String data = await rootBundle.loadString('assets/notes.json');
+
+      final jsonMap = jsonDecode(data);
+      final dataList = jsonMap['data'] as List<dynamic>;
+
+      // add data from notes.json to notes
+      dataList.forEach((note) {
+        notes.add(Note.fromMap(note));
+      });
+    } catch (e) {
+      print('Failed to load notes from notes.json: $e');
+    }
+
+    return notes;
+  }
+
   Future<void> closeDB() async => await _noteTable.closeDatabase();
   Future<bool> deleteAllNotes() async => await _noteTable.deleteNotes();
   Future<Note> getNoteById(int id) async => await _noteTable.readNote(id);

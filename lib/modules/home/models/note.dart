@@ -33,7 +33,7 @@ class Note {
     };
   }
 
-  factory Note.fromMap(Map<String, Object?> map) {
+  factory Note.fromMap(Map<String, dynamic> map) {
     return Note(
       id: map['_id'] as int,
       title: map['title'] != null ? map['title'] as String : null,
